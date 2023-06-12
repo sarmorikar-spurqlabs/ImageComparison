@@ -11,26 +11,15 @@ public class ImageProcessing {
     public static void main(String[] args) throws IOException {
         String img1 = "D:\\Demo1\\Selenium.png";
         String img2 = "D:\\Demo1\\seleniumIMg.png";
-        compareImage2(img1, img2);
-        compareImage1(img1, img2);
+        Method2(img1, img2);
+       Method1(img1, img2);
     }
 
 
-    public static void compareImage2(String image1, String image2) throws IOException {
-        BufferedImage expectedImage = ImageIO.read(new File(image1));
-        BufferedImage actualImage = ImageIO.read(new File(image2));
+   
 
-        ImageDiffer imgDiff = new ImageDiffer();
-        ImageDiff diff = imgDiff.makeDiff(actualImage, expectedImage);
-        if(diff.hasDiff()) {
-            System.out.println("Image is different by method 2.");
-        }else{
-            System.out.println("Image is same by method 2.");
-        }
-    }
+    public static void Method1(String image1, String image2) throws IOException {
 
-    public static void compareImage1(String image1, String image2) throws IOException {
-// TODO Auto-generated method stub
 
         BufferedImage img1 = ImageIO.read(new File(image1));
         BufferedImage img2 = ImageIO.read(new File(image2));
@@ -71,6 +60,18 @@ public class ImageProcessing {
                 System.out.println("Image is different by method 1.");
             }
 
+        }}
+         public static void Method2(String image1, String image2) throws IOException {
+        BufferedImage expectedImage = ImageIO.read(new File(image1));
+        BufferedImage actualImage = ImageIO.read(new File(image2));
+
+        ImageDiffer imgDiff = new ImageDiffer();
+        ImageDiff diff = imgDiff.makeDiff(actualImage, expectedImage);
+        if(diff.hasDiff()) {
+            System.out.println("Image is different by method 2.");
+        }else{
+            System.out.println("Image is same by method 2.");
         }
+    
     }
 }
